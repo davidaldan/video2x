@@ -1,0 +1,14 @@
+version: "3.8"
+
+services:
+  video2x:
+    build:
+      context: .
+      dockerfile: Dockerfile   # Si usas el Dockerfile anterior. Si no, cámbialo por 'image: ghcr.io/k4yt3x/video2x:latest'
+    # image: ghcr.io/k4yt3x/video2x:latest # Usa esto si NO tienes Dockerfile propio.
+    volumes:
+      - ./videos:/workspace   # Asegúrate de crear la carpeta 'videos' en el mismo directorio que este archivo
+    environment:
+      - TZ=America/Mexico_City  # Ajusta tu zona horaria si quieres
+    command: >   # Comando por defecto, puedes cambiarlo al levantar el servicio
+      -h   # Muestra ayuda, para testear el contenedor
